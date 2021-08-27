@@ -13,7 +13,7 @@ const ModalEdit = ({ isOpen, setIsOpen, addEntry, description, value, setDescrip
         <EntryForm addEntry={addEntry} 
                    description={description}
                    value={value}
-                   isEspense={isExpense}
+                   isExpense={isExpense}
                    setDescription={setDescription}
                    setValue={setValue}
                    setIsExpense={setIsExpense}
@@ -22,6 +22,7 @@ const ModalEdit = ({ isOpen, setIsOpen, addEntry, description, value, setDescrip
 
       <Modal.Actions>
         <Button onClick={() => setIsOpen(false) }>Close</Button>
+        <Button onClick={() => setIsOpen(false)} primary> Ok </Button>
       </Modal.Actions>
     </Modal>
   );
