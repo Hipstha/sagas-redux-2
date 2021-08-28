@@ -1,0 +1,24 @@
+{
+  "entries": [
+    {
+      "id": 1,
+      "description": "Work income Redux"
+    },
+    {
+      "id": 4,
+      "description": "Power Bill"
+    }
+  ],
+  "values": [
+    {
+      "id": 1,
+      "value": 1000,
+      "isExpense": false
+    },
+    {
+      "id": 4,
+      "value": 50,
+      "isExpense": true
+    }
+  ]
+}

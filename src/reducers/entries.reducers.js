@@ -1,20 +1,26 @@
+import { entriesTypes } from '../actions/entries.actions';
+
 // REDUCER
 const reducer = ( state = initialEntries, action ) => {
   let newEntries;
   switch ( action.type ) {
+
+    case entriesTypes.POPULATE_ENTRIES:
+      return action.payload;
     
-    case 'ADD_ENTRY':
+    case entriesTypes.ADD_ENTRY:
       newEntries = state.concat({ ...action.payload });
       return newEntries;
     
-    case 'REMOVE_ENTRY':
+    case entriesTypes.REMOVE_ENTRY_RESULT:
       newEntries = state.filter( entry => entry.id !== action.payload );
       return newEntries;
 
-    case 'UPDATE_ENTRY':
+    case entriesTypes.POPULATE_ENTRY_DETAILS:
+    case entriesTypes.UPDATE_ENTRY:
       newEntries = [...state];
       const index = newEntries.findIndex( entry => entry.id === action.payload.id );
-      newEntries[index] = { ...action.payload.entry }
+      newEntries[index] = { ...newEntries[index], ...action.payload.entry }
       return newEntries;
 
     default:
@@ -25,29 +31,4 @@ const reducer = ( state = initialEntries, action ) => {
 
 export default reducer;
 
-var initialEntries = [
-  {
-    id: 1,
-    description: 'Work income Redux',
-    value: 1000,
-    isExpense: false
-  },
-  {
-    id: 2,
-    description: "Water bill Redux",
-    value: 20,
-    isExpense: true
-  },
-  {
-    id: 3,
-    description: 'Rent',
-    value: 200,
-    isExpense: true
-  },
-  {
-    id: 4,
-    description: 'Power Bill',
-    value: 50,
-    isExpense: true
-  }
-];
+var initialEntries = [];

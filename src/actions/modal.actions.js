@@ -1,12 +1,17 @@
+export const modalTypes = {
+  OPEN_EDIT_MODAL:'OPEN_EDIT_MODAL',
+  CLOSE_EDIT_MODAL: 'CLOSE_EDIT_MODAL'
+}
+
 export const openEditModal = ( id ) => (
   {
-    type: 'OPEN_EDIT_MODAL',
+    type: modalTypes.OPEN_EDIT_MODAL,
     payload: {id}
   }
 )
 
 export const closeEditModal = () => (
   {
-    type: 'CLOSE_EDIT_MODAL'
+    type: modalTypes.CLOSE_EDIT_MODAL
   }
 )

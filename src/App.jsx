@@ -9,7 +9,8 @@ import EntryLines from './components/EntryLines';
 import MainHeader from './components/MainHeader';
 import ModalEdit from './components/ModalEdit';
 import NewEntryForm from './components/NewEntryForm';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllEntries } from './actions/entries.actions';
 
 function App() {
 
@@ -24,8 +25,7 @@ function App() {
   useEffect(() => {
     const index = entries.findIndex( entry => entry.id === id );
     setEntry( entries[index] );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ isOpen, id ]);
+  }, [ isOpen, id, entries ]);
 
   useEffect(() => {
 
@@ -43,6 +43,12 @@ function App() {
     setExpensesTotal( totalExpenses );
     setIncomeTotal( totalIncomes )
   }, [entries] );
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch( getAllEntries() )
+  }, [dispatch]);
 
   return (
     <Container>
